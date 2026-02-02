@@ -1,0 +1,48 @@
+.root {
+  padding: 127px 248px 85px;
+  box-sizing: border-box;
+  background-image: url('/contact-us/bg.png');
+
+  :global {
+    .con-title {
+      text-align: center;
+      font-weight: bold;
+      font-size: var(--font-58);
+      color: var(--cr-white);
+    }
+
+    .con-info-wrap {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .info-inner {
+      display: flex;
+      gap: 116px;
+      margin-top: 88px;
+      color: var(--cr-white);
+
+      .con-item {
+        font-size: var(--font-18);
+
+        .info-label {
+          margin-bottom: 19px;
+          font-size: var(--font-24);
+        }
+      }
+    }
+
+    .wechat-wrap {
+      display: flex;
+      gap: 60px;
+      margin-top: 61px;
+      color: var(--cr-white);
+
+      .we-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
