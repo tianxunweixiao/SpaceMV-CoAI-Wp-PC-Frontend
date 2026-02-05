@@ -10,6 +10,7 @@ import { setMenuIdx } from '@/store/modules/menuReducer'
 import { setCompanyInfo, setLoading, setError } from '@/store/modules/companyReducer'
 import { getCompanyInfoConfig, getCompanyProfileByPublishStatus } from '@/api/company'
 import { getMainPageContent, CarouselImage, MainProduct, TypicalCustomers } from '@/api/mainPage'
+import DOMPurify from 'dompurify'
 import styles from './index.module.less'
 
 function Home() {
@@ -92,7 +93,7 @@ function Home() {
             <div className="info-inner">
               <div 
                 className="mt-53 info-content" 
-                dangerouslySetInnerHTML={{ __html: profileOne }}
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(profileOne || '') }}
               />
               <div className="more-btn" onClick={() => handlePathClick('/about', 4)}>
                 <span>了解更多</span>

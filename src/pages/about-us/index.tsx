@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from '@/store'
 import { setCompanyInfo, setLoading, setError } from '@/store/modules/companyReducer'
 import { getCompanyInfoConfig, getCompanyProfileByPublishStatus, getProductCertsByPublishStatus } from '@/api/company'
 import { useAppOutletContext } from '@/App'
+import DOMPurify from 'dompurify'
 import styles from './index.module.less'
 
 function AboutUs() {
@@ -68,7 +69,7 @@ function AboutUs() {
         {companyInfo && (
           <div 
             className="company-con" 
-            dangerouslySetInnerHTML={{ __html: getCompanyProfileByPublishStatus(companyInfo)?.profileTwo || '' }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(getCompanyProfileByPublishStatus(companyInfo)?.profileTwo || '') }}
           />
         )}
       </div>
