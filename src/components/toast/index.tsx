@@ -15,11 +15,19 @@ export interface ToastProps {
 
 const Toast: React.FC<ToastProps> = ({ message, type = 'info', duration = 3000, onClose }) => {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      onClose?.()
-    }, duration)
+    let timer: NodeJS.Timeout | null = null
+    
+    if (duration > 0) {
+      timer = setTimeout(() => {
+        onClose?.()
+      }, duration)
+    }
 
-    return () => clearTimeout(timer)
+    return () => {
+      if (timer) {
+        clearTimeout(timer)
+      }
+    }
   }, [duration, onClose])
 
   return <div className={`${styles.toast} ${styles[type]}`}>{message}</div>

@@ -83,13 +83,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
-      include: [
-        'src/api/mainPage/index.ts',
-        'src/api/product/index.ts',
-        'src/store/modules/menuReducer/index.ts',
-        'src/services/axiosConfig.ts',
-        'src/components/carousel/index.tsx'
-      ],
+      include: ['src/**/*.{ts,tsx}'],
       exclude: ['src/**/*.d.ts', 'src/main.tsx', 'src/App.tsx', 'src/router/**', 'src/styles/**'],
       thresholds: {
         lines: 80,

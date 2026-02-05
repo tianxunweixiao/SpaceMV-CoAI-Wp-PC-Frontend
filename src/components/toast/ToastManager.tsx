@@ -7,7 +7,7 @@ type ToastOptions = Omit<ToastProps, 'onClose'>
 const toastContainer = document.createElement('div')
 document.body.appendChild(toastContainer)
 
-class ToastManager {
+export class ToastManager {
   private static instance: ToastManager | null = null
   private setToast: React.Dispatch<React.SetStateAction<ToastProps | null>> | null = null
 
